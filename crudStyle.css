@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+.font-sm {
+    font-size: .8rem
+}
+.search {
+    transition: all .30s ease-in-out;
+}
+.search:focus {
+    box-shadow: 0 0 0 0.15rem rgb(0 0 0 / 50%) inset;
+    border-color: rgb(0 0 0 / 50%);
+    background-clip:border-box
+}
+.hide {
+    display: none;
+}

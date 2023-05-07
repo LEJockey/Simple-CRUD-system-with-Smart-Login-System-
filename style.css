@@ -1,0 +1,58 @@
+*{
+    box-sizing: border-box;
+    margin: 0;  
+}
+body{
+    background-image: url(backGround.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.hide {
+    display: none;
+}
+
+.form-container {
+    min-width: 400px;
+}
+.create , .login {
+    transition: all .5s;
+}
+.form-input {
+    position: relative;
+}
+.mb {
+    margin-bottom: 1.5rem;
+}
+.form-input input:focus{
+    background-color: none;
+    border-color:black;
+    box-shadow: none;
+}
+.sucess-class{
+    border-color: rgb(20, 108, 67);
+}
+.error-class {
+    border-color:rgb(176, 42, 55);
+}
+.form-input i {
+    position: absolute;
+    top: 18.8px;
+    transform: translateY(-50%);
+    right: 5%;
+}
+span {
+    cursor: pointer;
+}
+.addOpacity {
+    opacity: 0;
+}
+.removeOpacity{
+    opacity: 1;
+}
+a {
+    color: rgba(0, 0, 0, 1);
+}
+a:hover {
+    color: rgba(0, 0, 0, .7);
+}

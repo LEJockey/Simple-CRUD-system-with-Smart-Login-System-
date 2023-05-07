@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bs-css/bootstrap.min.css">
+    <link rel="stylesheet" href="crudStyle.css">
+    <title>Smart CRUD System</title>
+</head>
+<body class=" bg-dark">
+    <nav class="navbar bg-body bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <div href="" class="d-flex align-items-center text-decoration-none">
+                    <img src="Jockey.png" alt="Logo" width="40" height="40">
+                    <div class="brandDetalis d-inline-block">
+                        <h1 class="mb-0 fs-6">Smart Crud</h1>
+                        <small class="font-sm">Created by LeJockey &#174;</small>
+                    </div>
+                </div>
+            </a>
+        <p class="my-0 d-flex align-items-center">
+            <span class="userName me-2"></span>
+            <button class="btn btn-outline-danger logOut">Log Out</button>
+        </p>
+        </div>
+    </nav>
+
+    <h1 class="text-white text-center my-4">Smart CRUD Sytem</h1>
+
+    <section class="container text-white py-3">
+
+
+        <div id="name" class="row flex-nowrap mb-3">
+
+            <!-- Product Name Input -->
+            <div class="col-8 d-inline-block">
+                <label for="pName">Product Name:</label>
+                <input class="form-control mb-3" type="text" name="" id="pName">
+            </div>
+
+            <!-- No of Products Input -->
+            <div class="col-4 d-inline-block">
+                <label for="count">Count:</label>
+                <input class="form-control mb-3 disabled" type="number" name="" id="count">
+            </div>
+        </div>
+
+
+        <!--Price Input -->
+        <div id="price" class="row flex-nowrap mb-3">
+            <div class="col-3 d-inline-block">
+                <label for="pPrice" class="form-label d-inline">Net Price</label>
+                <input onkeyup="calcPrice()" type="number" class="form-control" id="pPrice">
+            </div>
+            <div class="col-2 d-inline-block">
+                <label for="pTaxes" class="form-label d-inline">Taxes</label>
+                <input onkeyup="calcPrice()" type="number" class="form-control" id="pTaxes">
+            </div>
+            <div class="col-2 d-inline-block">
+                <label for="pAds" class="form-label d-inline">Ads</label>
+                <input onkeyup="calcPrice()" type="number" class="form-control" id="pAds">
+                </div>
+            <div class="col-2 d-inline-block">
+                <label for="pDiscount" class="form-label d-inline">Discount</label>
+                <input onkeyup="calcPrice()" type="number" class="form-control" id="pDiscount">
+            </div>
+            <div class="col-3 d-inline-block">
+                <label for="total" class="form-label d-inline">Total Price</label>
+                <input type="number" class="form-control" id="total">
+            </div>
+        </div>
+
+        <!-- Product Details Category / Model -->
+        <label for="pCategory">Product Category:</label>
+        <input class="form-control mb-3" type="text" name="" id="pCategory">
+        <label for="pModel">Product Model:</label>
+        <input class="form-control mb-3" type="text" name="" id="pModel">
+
+        <!-- Add / Update / Delete All Btns -->
+
+        <!-- Adding -->
+        <button type="button" class="w-100 btn btn-outline-light my-3 addProd" data-bs-toggle="modal" data-bs-target="#addingProduct">Add Product</button>
+        <!-- Modal to ensure Adding New Products -->
+        <div class="modal fade"
+            id="addingProduct"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5 text-dark"
+                            id="exampleModalLabel">Adding new products</h1>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-dark"> Are you sure you want to add these products to your CRUD System?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button"
+                            data-bs-dismiss="modal"
+                            class="btn btn-outline-success confirmAdd">Yes</button>
+                        <button type="button"
+                            class="btn btn-outline-danger"
+                            data-bs-dismiss="modal">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Updating -->
+        <button class="w-100 btn btn-outline-warning my-3 updateProd hide" data-bs-toggle="modal" data-bs-target="#updatingProduct">Update Product</button>
+        <!-- Modal to ensure Updating Products specification -->
+        <div class="modal fade"
+            id="updatingProduct"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5 text-dark"
+                            id="exampleModalLabel">Updating Product Specification</h1>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-dark"> Are you sure you want to update product specification in your CRUD System?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button"
+                            data-bs-dismiss="modal"
+                            class="btn btn-outline-success confirmUpdate">Yes</button>
+                        <button type="button"
+                            class="btn btn-outline-danger"
+                            data-bs-dismiss="modal">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="w-100 btn btn-outline-danger mb-3 deleteAll hide">Delete All Products</button>
+
+        <!-- Search by Product Name or Product category -->
+        <div class="input-group w-100 mb-3">
+            <span class="input-group-text text-bg-dark">Search By:</span>
+            <input oninput="searchByName(this.value)" type="text" aria-label="Product Name" class="form-control search" placeholder="Product Name...">
+            <input oninput="searchByCateg(this.value)" type="text" aria-label="Product Category" class="form-control search" placeholder="Product Category...">
+        </div>
+    </section>
+
+    <!-- Products Table -->
+    <div class="container mt-3">
+        <table class="table text-white text-center">
+
+            <!-- Head of Table -->
+            <thead>
+                <th class="d-none d-lg-table-cell">No</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th class="d-none d-lg-table-cell">Taxes</th>
+                <th class="d-none d-lg-table-cell">Ads</th>
+                <th>Discount</th>
+                <th>Total Price</th>
+                <th class="d-none d-lg-table-cell">Category</th>
+                <th class="d-none d-lg-table-cell">Model</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </thead>
+
+            <tbody id="pInfo">
+                
+            </tbody>
+
+        </table>
+    </div>
+
+    <script src="bs-js/bootstrap.bundle.min.js"></script>
+    <script src="crud.js"></script>
+</body>
+</html>
+
+
+
+
+
+

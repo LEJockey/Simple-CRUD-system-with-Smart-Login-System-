@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bs-css/bootstrap.min.css">
+    <link rel="stylesheet" href="font-awesome/all.min.css">
+    <link rel="stylesheet" href="bs-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Smart Login System</title>
+</head>
+<body class="bg-dark d-flex align-items-center justify-content-center min-vh-100">
+
+<div class="form-container py-3 px-4 mx-auto bg-white w-25 rounded-1">
+    <header class="mb-4">
+        <h2 class="text-center">Create account</h2>
+    </header>
+
+    <!-- Login Form -->
+    <form action=""
+        class="mx-auto login hide">
+        <!-- User name Input: -->
+        <div class="form-input">
+            <input class="form-control bg-light mb"
+                placeholder="Username or Email"
+                type="text"
+                id="userLogin">
+            <i class="fa-solid fa-circle-check text-success-emphasis hide"></i>
+            <i class="fa-solid fa-circle-exclamation text-danger-emphasis hide"></i>
+            <small class="errorMsg hide">Error Msg</small>
+        </div>
+
+        <!-- Password Input: -->
+        <div class="form-input">
+            <input class="form-control bg-light mb"
+                placeholder="Password"
+                type="password"
+                id="passLogin">
+            <i class="fa-solid fa-circle-check text-success-emphasis hide"></i>
+            <i class="fa-solid fa-circle-exclamation text-danger-emphasis hide"></i>
+            <small class="errorMsg text-danger-emphasis hide">Error Msg</small>
+        </div>
+
+        <button type="submit"
+            class="btn btn-outline-success w-100 mb-3">Continue</button>
+        <!-- <a class="text-decoration-none d-inline-block mb-2 mx-auto" href="">Forget your Password</a> -->
+        <a class="text-decoration-none d-inline-block mb-3 noAccout "
+            href="">Do you have an account? Create account</a>
+    </form>
+
+    <!-- Create Account Form -->
+    <form action=""
+        class="mx-auto create">
+
+        <!-- User name Input: -->
+        <div class="form-input nameInput">
+            <input class="form-control bg-light mb"
+                placeholder="Username"
+                type="text"
+                id="userCreate">
+            <i class="fa-solid fa-circle-check text-success-emphasis hide"></i>
+            <i class="fa-solid fa-circle-exclamation text-danger-emphasis hide"></i>
+            <small class="errorMsg text-danger-emphasis nameInput hide">Error Msg</small>
+        </div>
+
+        <!-- Email Input: -->
+        <div class="form-input">
+            <input class="form-control bg-light mb"
+                placeholder="Email address"
+                type="text"
+                id="mailCreate">
+            <i class="fa-solid fa-circle-check text-success-emphasis hide"></i>
+            <i class="fa-solid fa-circle-exclamation text-danger-emphasis hide"></i>
+            <small class="errorMsg text-danger-emphasis hide">Error Msg</small>
+        </div>
+
+        <!-- Password Input: -->
+        <div class="form-input">
+            <input class="form-control bg-light mb"
+                placeholder="Password"
+                type="password"
+                id="passCreate">
+            <i class="fa-solid fa-circle-check text-success-emphasis hide"></i>
+            <i class="fa-solid fa-circle-exclamation text-danger-emphasis hide"></i>
+            <small class="errorMsg text-danger-emphasis hide">Error Msg</small>
+        </div>
+
+        <!-- Confirmation Password: -->
+        <div class="form-input">
+            <input class="form-control bg-light mb"
+                placeholder="Confirm password"
+                type="password"
+                id="confirmPass">
+            <i class="fa-solid fa-circle-check text-success-emphasis hide"></i>
+            <i class="fa-solid fa-circle-exclamation text-danger-emphasis hide"></i>
+            <small class="errorMsg text-danger-emphasis hide">Error Msg</small>
+        </div>
+
+        <button type="submit"
+            class="btn btn-outline-success w-100 mb-3">Continue</button>
+        <span class="text-decoration-none d-inline-block mb-3">Already have an account? Sign in</span>
+    </form>
+</div>
+
+
+    <script src="bs-js/bootstrap.bundle.min.js"></script>
+    <script src="main.js"></script>
+    
+</body>
+</html>
